@@ -18,8 +18,8 @@ class PlayerFactory extends Factory
     public function definition(): array
     {
         return [
-            "lastname" => $this->faker->name(),
-            "firstname" => $this->faker->name(),
+            "lastname" => $this->faker->lastname(),
+            "firstname" => $this->faker->firstname(),
             "birth_date" => $this->faker->date(),
             "arrived_at" => $this->faker->date(),
             "role" => $this->faker->randomElement(Role::cases())->value,
