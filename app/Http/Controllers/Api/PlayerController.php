@@ -52,7 +52,7 @@ class PlayerController extends Controller
 
     public function update(UpdatePlayerRequest $request, Player $player)
     {
-        $player = $player->update([
+        $player->update([
             "lastname" => $request->lastname,
             "firstname" => $request->firstname,
             "birth_date" => $request->birth_date,
