@@ -16,4 +16,7 @@
 ##### Migrate Database and seed it
 ``` vendor/bin/sail artisan migrate --seed ```
 
+##### Test the code
+``` vendor/bin/sail test ```
+
 #### And with that we are pretty much good to go !
