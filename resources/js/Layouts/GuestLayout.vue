@@ -1,22 +1,35 @@
 <script setup>
-import ApplicationLogo from '@/Components/ApplicationLogo.vue';
-import { Link } from '@inertiajs/vue3';
+import { onMounted } from "vue";
+// import Navbar from "@/Components/Navs/Navbar.vue";
+import { initFlowbite } from "flowbite";
+
+onMounted(() => {
+    initFlowbite();
+});
 </script>
 
 <template>
-    <div
-        class="flex min-h-screen flex-col items-center bg-gray-100 pt-6 sm:justify-center sm:pt-0 dark:bg-gray-900"
-    >
-        <div>
-            <Link href="/">
-                <ApplicationLogo class="h-20 w-20 fill-current text-gray-500" />
-            </Link>
-        </div>
+    <Navbar />
 
+    <div
+        class="flex justify-center bg-gray-100 dark:bg-gray-900 overflow-hidden relative"
+    >
         <div
-            class="mt-6 w-full overflow-hidden bg-white px-6 py-4 shadow-md sm:max-w-md sm:rounded-lg dark:bg-gray-800"
+            id="main-content"
+            class="mb-16 mt-8 w-full max-w-screen-2xl px-4 dark:text-gray-400 md:px-12"
         >
-            <slot />
+            <!-- <Transition
+                enter-active-class="transition ease-in-out duration-300"
+                enter-from-class="opacity-0"
+                leave-active-class="transition ease-in-out duration-300"
+                leave-to-class="opacity-0"
+            >
+            </Transition> -->
+            <main :key="$page.component">
+                <div class="px-4 pt-6 grid grid-cols-6 gap-4 dark:bg-gray-900">
+                    <slot />
+                </div>
+            </main>
         </div>
     </div>
 </template>
