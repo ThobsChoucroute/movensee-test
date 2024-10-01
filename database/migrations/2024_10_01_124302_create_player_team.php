@@ -15,7 +15,6 @@ return new class extends Migration
             $table->id();
             $table->integer("player_id")->constrained("player")->onDelete("cascade");
             $table->integer("team_id")->constrained("team")->onDelete("cascade");
-            $table->string("job");
             $table->timestamps();
         });
     }

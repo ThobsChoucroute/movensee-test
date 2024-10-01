@@ -2,6 +2,7 @@
 
 namespace Database\Factories;
 
+use App\Enums\Role;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -21,6 +22,7 @@ class PlayerFactory extends Factory
             "firstname" => $this->faker->name(),
             "birth_date" => $this->faker->date(),
             "arrived_at" => $this->faker->date(),
+            "role" => $this->faker->randomElement(Role::cases())->value,
         ];
     }
 }

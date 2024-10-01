@@ -18,6 +18,7 @@ return new class extends Migration
             $table->date("birth_date");
             $table->date("arrived_at");
             $table->enum("strong_foot", ["left", "right", "both"]);
+            $table->string("role");
             $table->timestamps();
         });
     }
