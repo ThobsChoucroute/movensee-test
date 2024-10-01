@@ -10,5 +10,10 @@
     "Arrived At": "Arrivée le",
     "Right": "Droit",
     "Left": "Gauche",
-    "Both": "Les deux"
+    "Both": "Les deux",
+    "Select Team": "Choisir une équipe",
+    "Select Role": "Choisir un poste",
+    "None": "Aucune",
+    "Filter by teams": "Filtrer par équipes",
+    "Filter by roles": "Filtrer par postes"
 }
