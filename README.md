@@ -8,6 +8,8 @@
 ``` composer install ```
 ##### Install NPM dependencies
 ``` npm ci ```
+##### Copy .env
+``` cp .env.example .env```
 ##### Generate application key
 ``` php artisan key:generate ```
 ##### Install & Run Sail for local Development (If you Docker installed and configured)
