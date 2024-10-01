@@ -22,6 +22,7 @@ class PlayerFactory extends Factory
             "firstname" => $this->faker->firstname(),
             "birth_date" => $this->faker->date(),
             "arrived_at" => $this->faker->date(),
+            "strong_foot" => $this->faker->randomElement(["left", "right", "both"]),
             "role" => $this->faker->randomElement(Role::cases())->value,
         ];
     }

@@ -1,38 +1,67 @@
-<script>
-// import onMounted from "vue";
+<script setup>
+import GuestLayout from "@/Layouts/GuestLayout.vue";
 import { Link, usePage } from "@inertiajs/vue3";
+import {
+    FwbA,
+    FwbTable,
+    FwbTableBody,
+    FwbTableCell,
+    FwbTableHead,
+    FwbTableHeadCell,
+    FwbTableRow,
+} from "flowbite-vue";
+import TablePagination from "@/Components/TablePagination.vue";
 
 const page = usePage();
 
-// onMounted(() => {
-// console.log(page.props.players);
-// });
+defineOptions({ layout: GuestLayout });
 </script>
 
 <template>
-    <table>
-        <thead>
-            <th>Name</th>
-        </thead>
+    <div class="col-span-4">
+        <fwb-table>
+            <fwb-table-head>
+                <fwb-table-head-cell>{{ __("Name") }}</fwb-table-head-cell>
+                <fwb-table-head-cell>{{
+                    __("Strong Foot")
+                }}</fwb-table-head-cell>
+                <fwb-table-head-cell>{{ __("Role") }}</fwb-table-head-cell>
+                <fwb-table-head-cell>
+                    {{ __("Arrived At") }}
+                </fwb-table-head-cell>
+                <fwb-table-head-cell></fwb-table-head-cell>
+            </fwb-table-head>
 
-        <tbody>
-            <!-- {{
-                $page.props.players
-            }} -->
-            <tr v-for="player in $page.props.players.data">
-                <td>
-                    <a :href="route('players.show', player.id)">{{
-                        player.lastname
-                    }}</a>
-                </td>
-            </tr>
-        </tbody>
-    </table>
+            <fwb-table-body>
+                <fwb-table-row v-for="player in $page.props.players.data">
+                    <fwb-table-cell>
+                        <Link
+                            :href="route('players.show', player.id)"
+                            class="hover:underline"
+                            preserve-scroll
+                            preserve-state
+                        >
+                            {{ player.lastname }}
+                            {{ player.firstname }}
+                        </Link>
+                    </fwb-table-cell>
 
-    <a
-        :href="$page.props.players.prev_page_url"
-        style="margin-right: 10px; margin-top: 10px"
-        >Prev</a
-    >
-    <a :href="$page.props.players.next_page_url">Next</a>
+                    <fwb-table-cell>
+                        {{ __(player.strong_foot) }}
+                    </fwb-table-cell>
+
+                    <fwb-table-cell>{{ player.role }}</fwb-table-cell>
+
+                    <fwb-table-cell>{{ player.arrived_at }}</fwb-table-cell>
+
+                    <fwb-table-cell></fwb-table-cell>
+                </fwb-table-row>
+            </fwb-table-body>
+        </fwb-table>
+
+        <TablePagination
+            :table="$page.props.players"
+            class="mt-4"
+        ></TablePagination>
+    </div>
 </template>

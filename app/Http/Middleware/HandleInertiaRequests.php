@@ -36,6 +36,7 @@ class HandleInertiaRequests extends Middleware
             'auth' => [
                 'user' => $request->user(),
             ],
+            "appName" => config("app.name"),
             "localeFile" => function () use ($locale) {
                 $localeFile = base_path('lang/' . $locale . '/' . $locale . '.json');
 

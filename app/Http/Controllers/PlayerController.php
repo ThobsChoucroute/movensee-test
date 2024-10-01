@@ -3,7 +3,9 @@
 namespace App\Http\Controllers;
 
 use App\Models\Player;
+use Carbon\Carbon;
 use Illuminate\Http\Request;
+use Illuminate\Support\Str;
 use Inertia\Inertia;
 
 class PlayerController extends Controller
@@ -13,8 +15,20 @@ class PlayerController extends Controller
      */
     public function index()
     {
+        $players = Player::orderBy("lastname")->paginate(15)->through(function ($player) {
+            $arrivedAt = new Carbon($player->arrived_at);
+            return [
+                "id" => $player->id,
+                "lastname" => $player->lastname,
+                "firstname" => $player->firstname,
+                "strong_foot" => Str::ucFirst($player->strong_foot),
+                "role" => Str::ucFirst($player->role->value),
+                "arrived_at" => $arrivedAt->format("d/m/Y"),
+            ];
+        });
+
         return Inertia::render("Players/Index", [
-            "players" => Player::orderBy("lastname")->paginate(15),
+            "players" => $players,
         ]);
     }
 
