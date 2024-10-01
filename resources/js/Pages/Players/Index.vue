@@ -3,14 +3,12 @@ import GuestLayout from "@/Layouts/GuestLayout.vue";
 import { Link, usePage, router } from "@inertiajs/vue3";
 import { ref, onMounted } from "vue";
 import {
-    FwbA,
     FwbTable,
     FwbTableBody,
     FwbTableCell,
     FwbTableHead,
     FwbTableHeadCell,
     FwbTableRow,
-    FwbSelect,
 } from "flowbite-vue";
 import TablePagination from "@/Components/TablePagination.vue";
 

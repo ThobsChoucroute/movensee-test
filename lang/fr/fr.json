@@ -15,5 +15,10 @@
     "Select Role": "Choisir un poste",
     "None": "Aucune",
     "Filter by teams": "Filtrer par équipes",
-    "Filter by roles": "Filtrer par postes"
+    "Filter by roles": "Filtrer par postes",
+    "Players": "Joueuses",
+    "Contact": "Contact",
+    "Send": "Envoyer",
+    "Email successfully sended !": "Email envoyé avec succès !",
+    "Something went wrong... Please try again.": "Quelque chose s'est mal passé... Merci de réessayer."
 }

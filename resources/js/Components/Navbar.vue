@@ -54,7 +54,14 @@ const props = defineProps({});
                 >
                     <ul
                         class="flex flex-col p-4 md:p-0 mt-4 font-medium md:space-x-8 rtl:space-x-reverse md:flex-row md:mt-0"
-                    ></ul>
+                    >
+                        <NavLink routename="players.index" activeFor="Players">
+                            {{ __("Players") }}
+                        </NavLink>
+                        <NavLink routename="contact.show" activeFor="Contact">
+                            {{ __("Contact") }}
+                        </NavLink>
+                    </ul>
                 </div>
 
                 <div class="flex items-center lg:order-2">
