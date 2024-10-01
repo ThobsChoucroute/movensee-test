@@ -86,8 +86,7 @@ defineOptions({ layout: GuestLayout });
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 @change="filterTeam"
             >
-                <option selected disabled>{{ __("Select Team") }}</option>
-                <option value="null">{{ __("None") }}</option>
+                <option selected value="null">{{ __("All Teams") }}</option>
                 <option
                     :value="team.id"
                     v-for="team in $page.props.teams"
@@ -108,8 +107,8 @@ defineOptions({ layout: GuestLayout });
                 class="bg-gray-50 border border-gray-300 text-gray-900 text-sm rounded-lg focus:ring-blue-500 focus:border-blue-500 block w-full p-2.5 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
                 @change="filterRole"
             >
-                <option selected disabled>{{ __("Select Role") }}</option>
-                <option value="null">{{ __("None") }}</option>
+                <!-- <option selected disabled>{{ __("Select Role") }}</option> -->
+                <option selected value="null">{{ __("All Roles") }}</option>
                 <option
                     :value="role.value"
                     v-for="role in $page.props.roles"
@@ -136,7 +135,17 @@ defineOptions({ layout: GuestLayout });
             </fwb-table-head>
 
             <fwb-table-body>
-                <fwb-table-row v-for="player in $page.props.players.data">
+                <fwb-table-row v-if="$page.props.players.data.length == 0">
+                    <fwb-table-cell colspan="5">
+                        <span class="flex items-center justify-center">
+                            {{ __("No results...") }}
+                        </span>
+                    </fwb-table-cell>
+                </fwb-table-row>
+                <fwb-table-row
+                    v-for="player in $page.props.players.data"
+                    v-else
+                >
                     <fwb-table-cell>
                         <Link
                             :href="route('players.show', player.id)"
