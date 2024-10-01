@@ -12,7 +12,7 @@
 ``` cp .env.example .env```
 ##### Generate application key
 ``` php artisan key:generate ```
-##### Install & Run Sail for local Development (If you Docker installed and configured)
+##### Install & Run Sail for local Development (If you have Docker installed and configured)
 ``` php artisan sail:install ```
 ``` vendor/bin/sail up -d ```
 ##### Migrate Database and seed it
