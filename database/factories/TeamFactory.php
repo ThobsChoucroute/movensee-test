@@ -2,6 +2,8 @@
 
 namespace Database\Factories;
 
+use App\Models\Player;
+use App\Models\Team;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**
@@ -19,5 +21,14 @@ class TeamFactory extends Factory
         return [
             "name" => "U" . $this->faker->randomDigit(),
         ];
+    }
+
+    public function configure(): static
+    {
+        return $this->afterCreating(function (Team $team) {
+            for ($i = 0; $i < 12; $i++) {
+                $team->players()->attach(Player::find($this->faker->numberBetween(1, 200)));
+            }
+        });
     }
 }

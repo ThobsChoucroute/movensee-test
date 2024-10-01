@@ -3,6 +3,7 @@
 namespace Database\Factories;
 
 use App\Enums\Role;
+use App\Models\Player;
 use Illuminate\Database\Eloquent\Factories\Factory;
 
 /**

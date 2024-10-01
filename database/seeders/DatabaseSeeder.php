@@ -14,19 +14,11 @@ class DatabaseSeeder extends Seeder
      */
     public function run(): void
     {
-        // User::factory(10)->create();
-
-        // User::factory()->create([
-        //     'name' => 'Test User',
-        //     'email' => 'test@example.com',
-        // ]);
-
-        Player::factory(50)->create();
+        Player::factory(200)->create();
 
         Team::factory(10)->create();
 
         Team::factory()
-            ->has(Player::factory(5))
             ->create([
                 "name" => "Sénior",
             ]);
