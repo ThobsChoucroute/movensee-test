@@ -16,9 +16,12 @@
 ``` php artisan sail:install ```
 ``` vendor/bin/sail up -d ```
 ##### Migrate Database and seed it
-``` vendor/bin/sail artisan migrate --seed ```
+``` vendor/bin/sail artisan migrate --seed ``` [^1]
 
 ##### Test the code
 ``` vendor/bin/sail test ```
 
 #### And with that we are pretty much good to go !
+
+
+[^1]: If the migration fails, try to change **DB_USERNAME=root** and **DB_PASSWORD=**
