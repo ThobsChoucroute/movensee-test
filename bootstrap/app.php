@@ -21,9 +21,11 @@ return Application::configure(basePath: dirname(__DIR__))
     })
     ->withExceptions(function (Exceptions $exceptions) {
         $exceptions->render(function (Exception $exception, $request) {
-            return response()->json([
-                "message" => __("Something went wrong..."),
-                "data" => [],
-            ], 500);
+            if (str_contains($request->path(), "api")) {
+                return response()->json([
+                    "message" => __("Something went wrong..."),
+                    "data" => [],
+                ], 500);
+            }
         });
     })->create();
